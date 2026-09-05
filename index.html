@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeepSeek Round1 — PIX Básico R$50 / Plus R$100</title>
+  <style>
+    :root { --bg:#0f1419; --card:#1a2332; --text:#e7ecf3; --muted:#9aa8bc; --accent:#4d6bfe; --border:#2a3548; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.45; padding:1.5rem 1rem 3rem; }
+    main { max-width:900px; margin:0 auto; }
+    h1 { font-size:1.35rem; margin:0 0 .25rem; }
+    .sub { color:var(--muted); margin:0 0 1.25rem; font-size:.95rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.1rem 1.2rem; margin-bottom:1rem; }
+    h2 { font-size:1.05rem; margin:0 0 .75rem; }
+    ul.offers { list-style:none; padding:0; margin:0; }
+    ul.offers li { display:flex; justify-content:space-between; gap:1rem; padding:.5rem 0; border-bottom:1px solid var(--border); }
+    ul.offers li:last-child { border-bottom:none; }
+    .price { color:var(--accent); font-weight:600; }
+    .pix-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+    .pix-card { background:#0c1017; border:1px solid var(--border); border-radius:10px; padding:.85rem; display:flex; flex-direction:column; gap:.5rem; }
+    .pix-card h3 { margin:0; font-size:1rem; text-align:center; color:var(--accent); }
+    .pix-card img { width:min(200px,100%); height:auto; margin:0 auto; border-radius:6px; background:#fff; }
+    .pix-card textarea { width:100%; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.62rem; background:#111827; color:#c8d4e4; border:1px solid var(--border); border-radius:6px; padding:.45rem; }
+    .pix-card button { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:.55rem .75rem; font-weight:650; cursor:pointer; }
+    .note { color:var(--muted); font-size:.88rem; margin:.5rem 0 0; }
+    a { color:#8aa0ff; }
+    footer { margin-top:1rem; color:var(--muted); font-size:.85rem; }
+    .toast { position:fixed; bottom:1rem; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; padding:.5rem 1rem; border-radius:999px; font-weight:600; display:none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DeepSeek · chat Instant — ROUND1</h1>
+    <p class="sub">Recebedor <strong>LUIZ</strong> · PIX CRC-ok (tag54) · Hub <a href="https://ziuluiziul.github.io/round1-cumulunimbus/">multi-IA</a></p>
+
+    <section class="card">
+      <h2>Ofertas</h2>
+      <ul class="offers">
+        <li><span>Pacote <strong>Básico</strong> — 5 posts LinkedIn (DeepSeek chat free)</span><span class="price">R$ 50</span></li>
+        <li><span>Pacote <strong>Plus</strong> — artigo 1500+ + posts</span><span class="price">R$ 100</span></li>
+      </ul>
+      <p class="note">SKU R$50 → qr_2 · SKU R$100 Plus → qr_3 (EMV 100.00). Gist: <a href="https://gist.github.com/Ziuluiziul/a361c5e29cb5f3dab055000022d54dfb">oferta + ENTREGAVEL</a></p>
+    </section>
+
+    <section class="card">
+      <h2>Pagar agora (PIX)</h2>
+      <div class="pix-grid">
+        <article class="pix-card">
+          <h3>Básico · R$ 50</h3>
+          <img src="pix/qr_2.png" alt="QR PIX R$ 50" width="200" height="200" />
+          <textarea readonly rows="4" id="cc-50">00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62080504Pack63044E58</textarea>
+          <button type="button" data-copy="cc-50">Copiar PIX</button>
+        </article>
+        <article class="pix-card">
+          <h3>Plus · R$ 100</h3>
+          <img src="pix/qr_3.png" alt="QR PIX R$ 100" width="200" height="200" />
+          <textarea readonly rows="4" id="cc-100">00020126330014br.gov.bcb.pix0111080303629945204000053039865406100.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62120508Apoio1006304C205</textarea>
+          <button type="button" data-copy="cc-100">Copiar PIX</button>
+        </article>
+      </div>
+      <p class="note">Valor = tag 54 do payload. USD/outras → Binance (só Luiz). Sem cold-DM.</p>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <p class="note" style="margin-top:0">Gist ROUND1: <a href="https://gist.github.com/Ziuluiziul/a361c5e29cb5f3dab055000022d54dfb">https://gist.github.com/Ziuluiziul/a361c5e29cb5f3dab055000022d54dfb</a></p>
+      <p class="note">Hub cumulunimbus: <a href="https://ziuluiziul.github.io/round1-cumulunimbus/">https://ziuluiziul.github.io/round1-cumulunimbus/</a></p>
+    </section>
+
+    <footer>DeepSeek ROUND1 · PIX por valor CRC-ok · chat Instant free</footer>
+  </main>
+  <div class="toast" id="toast">Copiado</div>
+  <script>
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const el = document.getElementById(btn.getAttribute("data-copy"));
+        try { await navigator.clipboard.writeText(el.value); }
+        catch (e) { el.select(); document.execCommand("copy"); }
+        const t = document.getElementById("toast");
+        t.style.display = "block";
+        setTimeout(() => t.style.display = "none", 1200);
+      });
+    });
+  </script>
+</body>
+</html>
